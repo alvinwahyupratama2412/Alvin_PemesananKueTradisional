@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace KueTradisional
 {
-    public partial class Pesananform : Form
+    public partial class TambahPesanan : Form
     {
-        public Pesananform()
+        public TambahPesanan()
         {
             InitializeComponent();
-        }
-
-        private void btnTambahp_Click(object sender, EventArgs e)
-        {
-            TambahPesanan f2 = new TambahPesanan();
-            f2.Show();
         }
     }
 }

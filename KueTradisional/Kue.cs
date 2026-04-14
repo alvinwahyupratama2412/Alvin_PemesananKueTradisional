@@ -21,5 +21,11 @@ namespace KueTradisional
         {
 
         }
+
+        private void btnTambahk_Click(object sender, EventArgs e)
+        {
+            TambahKue f2 = new TambahKue();
+            f2.Show();
+        }
     }
 }
