@@ -65,7 +65,7 @@ namespace KueTradisional
 
                 if (result > 0)
                 {
-                    MessageBox.Show("Data mahasiswa berhasil ditambahkan");
+                    MessageBox.Show("Data kue berhasil ditambahkan");
                     ClearForm();
                 }
                 else
