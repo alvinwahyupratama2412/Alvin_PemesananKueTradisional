@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace KueTradisional
 {
-    public partial class TambahPesanan : Form
+    public partial class EditPesanan : Form
     {
-        public TambahPesanan()
+        public EditPesanan()
         {
             InitializeComponent();
-        }
-
-        private void txtTpnama_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
