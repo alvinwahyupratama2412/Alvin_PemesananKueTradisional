@@ -27,5 +27,11 @@ namespace KueTradisional
             TambahKue f2 = new TambahKue();
             f2.Show();
         }
+
+        private void btnUpdatek_Click(object sender, EventArgs e)
+        {
+            UpdateKue f2 = new UpdateKue();
+            f2.Show();
+        }
     }
 }
