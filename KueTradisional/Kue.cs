@@ -47,7 +47,41 @@ namespace KueTradisional
 
         private void btnTampilk_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
 
+                dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Clear();
+
+                dataGridView1.Columns.Add("KueID", "KueID");
+                dataGridView1.Columns.Add("NamaKue", "NamaKue");
+                dataGridView1.Columns.Add("Harga", "Harga");
+
+                string query = "SELECT * FROM Kue";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    dataGridView1.Rows.Add(
+                        reader["KueID"].ToString(),
+                        reader["NamaKue"].ToString(),
+                        reader["Harga"].ToString()
+                    );
+
+
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal menampilkan data : " + ex.Message);
+            }
         }
     }
 }
