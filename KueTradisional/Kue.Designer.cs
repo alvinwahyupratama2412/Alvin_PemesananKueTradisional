@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbljudulk = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbljudulk
@@ -36,11 +39,30 @@
             this.lbljudulk.AutoSize = true;
             this.lbljudulk.Font = new System.Drawing.Font("Lucida Sans", 16.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbljudulk.ForeColor = System.Drawing.Color.DimGray;
-            this.lbljudulk.Location = new System.Drawing.Point(12, 9);
+            this.lbljudulk.Location = new System.Drawing.Point(12, 27);
             this.lbljudulk.Name = "lbljudulk";
             this.lbljudulk.Size = new System.Drawing.Size(262, 49);
             this.lbljudulk.TabIndex = 1;
             this.lbljudulk.Text = "Daftar Kue";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Location = new System.Drawing.Point(21, 101);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 82;
+            this.dataGridView1.RowTemplate.Height = 33;
+            this.dataGridView1.Size = new System.Drawing.Size(1092, 661);
+            this.dataGridView1.TabIndex = 2;
             // 
             // Kueform
             // 
@@ -48,10 +70,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1345, 848);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lbljudulk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Kueform";
             this.Text = "Kue";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -60,5 +84,6 @@
         #endregion
 
         private System.Windows.Forms.Label lbljudulk;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
