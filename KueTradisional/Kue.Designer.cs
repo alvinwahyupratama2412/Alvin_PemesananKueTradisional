@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbljudulk = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnTambahk = new System.Windows.Forms.Button();
             this.btnUpdatek = new System.Windows.Forms.Button();
             this.btnHapusk = new System.Windows.Forms.Button();
             this.btnTampilk = new System.Windows.Forms.Button();
+            this.lblTk = new System.Windows.Forms.Label();
+            this.txtTk = new System.Windows.Forms.TextBox();
+            this.btnTk = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,14 +56,14 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(21, 101);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
@@ -125,12 +128,47 @@
             this.btnTampilk.Text = "Tampil";
             this.btnTampilk.UseVisualStyleBackColor = false;
             // 
+            // lblTk
+            // 
+            this.lblTk.AutoSize = true;
+            this.lblTk.Font = new System.Drawing.Font("Lucida Sans", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTk.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTk.Location = new System.Drawing.Point(16, 777);
+            this.lblTk.Name = "lblTk";
+            this.lblTk.Size = new System.Drawing.Size(150, 28);
+            this.lblTk.TabIndex = 9;
+            this.lblTk.Text = "Total Kue : ";
+            // 
+            // txtTk
+            // 
+            this.txtTk.Location = new System.Drawing.Point(172, 777);
+            this.txtTk.Name = "txtTk";
+            this.txtTk.Size = new System.Drawing.Size(102, 31);
+            this.txtTk.TabIndex = 10;
+            // 
+            // btnTk
+            // 
+            this.btnTk.BackColor = System.Drawing.Color.Sienna;
+            this.btnTk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTk.Font = new System.Drawing.Font("Lucida Sans", 7.875F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTk.ForeColor = System.Drawing.Color.White;
+            this.btnTk.Location = new System.Drawing.Point(301, 768);
+            this.btnTk.Name = "btnTk";
+            this.btnTk.Size = new System.Drawing.Size(173, 50);
+            this.btnTk.TabIndex = 11;
+            this.btnTk.Text = "Hitung";
+            this.btnTk.UseVisualStyleBackColor = false;
+            // 
             // Kueform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1345, 848);
+            this.Controls.Add(this.btnTk);
+            this.Controls.Add(this.txtTk);
+            this.Controls.Add(this.lblTk);
             this.Controls.Add(this.btnTampilk);
             this.Controls.Add(this.btnHapusk);
             this.Controls.Add(this.btnUpdatek);
@@ -154,5 +192,8 @@
         private System.Windows.Forms.Button btnUpdatek;
         private System.Windows.Forms.Button btnHapusk;
         private System.Windows.Forms.Button btnTampilk;
+        private System.Windows.Forms.Label lblTk;
+        private System.Windows.Forms.TextBox txtTk;
+        private System.Windows.Forms.Button btnTk;
     }
 }
