@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panelside = new System.Windows.Forms.Panel();
-            this.logo = new System.Windows.Forms.PictureBox();
             this.btnPesanan = new System.Windows.Forms.Button();
             this.btnKue = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -37,9 +36,10 @@
             this.lbltitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.panelside.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.panelheader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelside
@@ -54,17 +54,6 @@
             this.panelside.Name = "panelside";
             this.panelside.Size = new System.Drawing.Size(358, 919);
             this.panelside.TabIndex = 0;
-            // 
-            // logo
-            // 
-            this.logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.logo.Image = global::KueTradisional.Properties.Resources.Logo_sistem_pemesanan_kue_tradisional__3_;
-            this.logo.Location = new System.Drawing.Point(49, 0);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(270, 270);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logo.TabIndex = 0;
-            this.logo.TabStop = false;
             // 
             // btnPesanan
             // 
@@ -109,6 +98,7 @@
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Connect Database";
             this.btnConnect.UseVisualStyleBackColor = false;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // panelheader
             // 
@@ -155,6 +145,18 @@
             this.mainpanel.Name = "mainpanel";
             this.mainpanel.Size = new System.Drawing.Size(1310, 919);
             this.mainpanel.TabIndex = 2;
+            this.mainpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainpanel_Paint);
+            // 
+            // logo
+            // 
+            this.logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.logo.Image = global::KueTradisional.Properties.Resources.Logo_sistem_pemesanan_kue_tradisional__3_;
+            this.logo.Location = new System.Drawing.Point(49, 0);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(270, 270);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logo.TabIndex = 0;
+            this.logo.TabStop = false;
             // 
             // Form1
             // 
@@ -170,9 +172,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelside.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panelheader.ResumeLayout(false);
             this.panelheader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
 
         }

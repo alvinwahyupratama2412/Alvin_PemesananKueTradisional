@@ -7,15 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace KueTradisional
 {
     public partial class Form1 : Form
     {
+
+        private readonly SqlConnection conn;
+        private readonly string connectionString =
+            "Data Source=LAPTOP-5BS6SFFN\\ALVIN;Initial Catalog=KueTradisionalDB;Integrated Security=True";
+
         public Form1()
         {
             InitializeComponent();
+            conn = new SqlConnection(connectionString);
         }
+
+        private void ConnectDataBase()
+        {
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                MessageBox.Show("Koneksi berhasil");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Koneksi gagal: " + ex.Message);
+            }
+        }
+
+
 
         public void loadform(object Form)
         {
@@ -42,6 +67,16 @@ namespace KueTradisional
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void mainpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            ConnectDataBase();
         }
     }
 }
