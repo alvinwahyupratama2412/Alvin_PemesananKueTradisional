@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbljudulk = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnTambahk = new System.Windows.Forms.Button();
+            this.btnUpdatek = new System.Windows.Forms.Button();
+            this.btnHapusk = new System.Windows.Forms.Button();
+            this.btnTampilk = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,20 +53,77 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(21, 101);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1092, 661);
+            this.dataGridView1.Size = new System.Drawing.Size(1071, 661);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // btnTambahk
+            // 
+            this.btnTambahk.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnTambahk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTambahk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTambahk.Font = new System.Drawing.Font("Lucida Sans", 7.875F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTambahk.ForeColor = System.Drawing.Color.White;
+            this.btnTambahk.Location = new System.Drawing.Point(1113, 101);
+            this.btnTambahk.Name = "btnTambahk";
+            this.btnTambahk.Size = new System.Drawing.Size(173, 50);
+            this.btnTambahk.TabIndex = 3;
+            this.btnTambahk.Text = "Tambah";
+            this.btnTambahk.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdatek
+            // 
+            this.btnUpdatek.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnUpdatek.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdatek.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdatek.Font = new System.Drawing.Font("Lucida Sans", 7.875F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatek.ForeColor = System.Drawing.Color.White;
+            this.btnUpdatek.Location = new System.Drawing.Point(1113, 182);
+            this.btnUpdatek.Name = "btnUpdatek";
+            this.btnUpdatek.Size = new System.Drawing.Size(173, 50);
+            this.btnUpdatek.TabIndex = 4;
+            this.btnUpdatek.Text = "Edit";
+            this.btnUpdatek.UseVisualStyleBackColor = false;
+            // 
+            // btnHapusk
+            // 
+            this.btnHapusk.BackColor = System.Drawing.Color.IndianRed;
+            this.btnHapusk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHapusk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHapusk.Font = new System.Drawing.Font("Lucida Sans", 7.875F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHapusk.ForeColor = System.Drawing.Color.White;
+            this.btnHapusk.Location = new System.Drawing.Point(1113, 264);
+            this.btnHapusk.Name = "btnHapusk";
+            this.btnHapusk.Size = new System.Drawing.Size(173, 50);
+            this.btnHapusk.TabIndex = 5;
+            this.btnHapusk.Text = "Hapus";
+            this.btnHapusk.UseVisualStyleBackColor = false;
+            this.btnHapusk.Click += new System.EventHandler(this.btnHapusk_Click);
+            // 
+            // btnTampilk
+            // 
+            this.btnTampilk.BackColor = System.Drawing.Color.DimGray;
+            this.btnTampilk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTampilk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTampilk.Font = new System.Drawing.Font("Lucida Sans", 7.875F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTampilk.ForeColor = System.Drawing.Color.White;
+            this.btnTampilk.Location = new System.Drawing.Point(1113, 344);
+            this.btnTampilk.Name = "btnTampilk";
+            this.btnTampilk.Size = new System.Drawing.Size(173, 50);
+            this.btnTampilk.TabIndex = 6;
+            this.btnTampilk.Text = "Tampil";
+            this.btnTampilk.UseVisualStyleBackColor = false;
             // 
             // Kueform
             // 
@@ -70,6 +131,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1345, 848);
+            this.Controls.Add(this.btnTampilk);
+            this.Controls.Add(this.btnHapusk);
+            this.Controls.Add(this.btnUpdatek);
+            this.Controls.Add(this.btnTambahk);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lbljudulk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -85,5 +150,9 @@
 
         private System.Windows.Forms.Label lbljudulk;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnTambahk;
+        private System.Windows.Forms.Button btnUpdatek;
+        private System.Windows.Forms.Button btnHapusk;
+        private System.Windows.Forms.Button btnTampilk;
     }
 }

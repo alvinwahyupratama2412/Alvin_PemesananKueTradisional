@@ -16,5 +16,10 @@ namespace KueTradisional
         {
             InitializeComponent();
         }
+
+        private void btnHapusk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
