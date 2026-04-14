@@ -32,7 +32,7 @@
             this.lblHargakT = new System.Windows.Forms.Label();
             this.txtTknama = new System.Windows.Forms.TextBox();
             this.txtTkharga = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTambahKue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNamakT
@@ -69,30 +69,32 @@
             this.txtTkharga.Size = new System.Drawing.Size(328, 31);
             this.txtTkharga.TabIndex = 3;
             // 
-            // button1
+            // btnTambahKue
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkCyan;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(563, 308);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 50);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Simpan";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnTambahKue.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnTambahKue.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTambahKue.ForeColor = System.Drawing.Color.White;
+            this.btnTambahKue.Location = new System.Drawing.Point(563, 308);
+            this.btnTambahKue.Name = "btnTambahKue";
+            this.btnTambahKue.Size = new System.Drawing.Size(150, 50);
+            this.btnTambahKue.TabIndex = 4;
+            this.btnTambahKue.Text = "Simpan";
+            this.btnTambahKue.UseVisualStyleBackColor = false;
+            this.btnTambahKue.Click += new System.EventHandler(this.button1_Click);
             // 
             // TambahKue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 387);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTambahKue);
             this.Controls.Add(this.txtTkharga);
             this.Controls.Add(this.txtTknama);
             this.Controls.Add(this.lblHargakT);
             this.Controls.Add(this.lblNamakT);
             this.Name = "TambahKue";
             this.Text = "TambahKue";
+            this.Load += new System.EventHandler(this.TambahKue_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,6 +106,6 @@
         private System.Windows.Forms.Label lblHargakT;
         private System.Windows.Forms.TextBox txtTknama;
         private System.Windows.Forms.TextBox txtTkharga;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTambahKue;
     }
 }
