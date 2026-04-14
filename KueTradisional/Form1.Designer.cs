@@ -36,6 +36,7 @@
             this.btnPesanan = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.lbltitle = new System.Windows.Forms.Label();
             this.panelside.SuspendLayout();
             this.panelheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -57,6 +58,7 @@
             // panelheader
             // 
             this.panelheader.BackColor = System.Drawing.Color.Silver;
+            this.panelheader.Controls.Add(this.lbltitle);
             this.panelheader.Controls.Add(this.btnClose);
             this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelheader.Location = new System.Drawing.Point(0, 0);
@@ -138,6 +140,17 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // lbltitle
+            // 
+            this.lbltitle.AutoSize = true;
+            this.lbltitle.Font = new System.Drawing.Font("Lucida Sans", 10.125F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltitle.ForeColor = System.Drawing.Color.DimGray;
+            this.lbltitle.Location = new System.Drawing.Point(12, 8);
+            this.lbltitle.Name = "lbltitle";
+            this.lbltitle.Size = new System.Drawing.Size(392, 32);
+            this.lbltitle.TabIndex = 2;
+            this.lbltitle.Text = "Pemesanan Kue Tradisional";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -149,9 +162,11 @@
             this.Controls.Add(this.panelheader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelside.ResumeLayout(false);
             this.panelheader.ResumeLayout(false);
+            this.panelheader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
 
@@ -167,6 +182,7 @@
         private System.Windows.Forms.Button btnKue;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lbltitle;
     }
 }
 
