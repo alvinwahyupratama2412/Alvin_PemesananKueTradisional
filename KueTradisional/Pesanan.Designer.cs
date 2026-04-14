@@ -1,6 +1,6 @@
 ﻿namespace KueTradisional
 {
-    partial class Pesanan
+    partial class Pesananform
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@
             this.lbljudulp.TabIndex = 0;
             this.lbljudulp.Text = "Daftar Pesanan";
             // 
-            // Pesanan
+            // Pesananform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -50,7 +50,7 @@
             this.ClientSize = new System.Drawing.Size(1345, 848);
             this.Controls.Add(this.lbljudulp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Pesanan";
+            this.Name = "Pesananform";
             this.Text = "Pesanan";
             this.ResumeLayout(false);
             this.PerformLayout();

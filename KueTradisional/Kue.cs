@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace KueTradisional
 {
-    public partial class Kue : Form
+    public partial class Kueform : Form
     {
-        public Kue()
+        public Kueform()
         {
             InitializeComponent();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace KueTradisional
 {
-    public partial class Pesanan : Form
+    public partial class Pesananform : Form
     {
-        public Pesanan()
+        public Pesananform()
         {
             InitializeComponent();
         }

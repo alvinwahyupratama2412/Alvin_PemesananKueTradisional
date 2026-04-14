@@ -98,6 +98,7 @@
             this.btnKue.TabIndex = 1;
             this.btnKue.Text = "Kue";
             this.btnKue.UseVisualStyleBackColor = false;
+            this.btnKue.Click += new System.EventHandler(this.btnKue_Click);
             // 
             // btnPesanan
             // 
@@ -111,6 +112,7 @@
             this.btnPesanan.TabIndex = 2;
             this.btnPesanan.Text = "Pesanan";
             this.btnPesanan.UseVisualStyleBackColor = false;
+            this.btnPesanan.Click += new System.EventHandler(this.btnPesanan_Click);
             // 
             // logo
             // 

@@ -28,5 +28,15 @@ namespace KueTradisional
             this.mainpanel.Tag = f;
             f.Show();
         }
+
+        private void btnKue_Click(object sender, EventArgs e)
+        {
+            loadform(new Kueform());
+        }
+
+        private void btnPesanan_Click(object sender, EventArgs e)
+        {
+            loadform(new Pesananform());
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace KueTradisional
 {
-    partial class Kue
+    partial class Kueform
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@
             this.lbljudulk.TabIndex = 1;
             this.lbljudulk.Text = "Daftar Kue";
             // 
-            // Kue
+            // Kueform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -50,7 +50,7 @@
             this.ClientSize = new System.Drawing.Size(1345, 848);
             this.Controls.Add(this.lbljudulk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Kue";
+            this.Name = "Kueform";
             this.Text = "Kue";
             this.ResumeLayout(false);
             this.PerformLayout();
