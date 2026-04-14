@@ -80,6 +80,7 @@
             this.btnUk.TabIndex = 5;
             this.btnUk.Text = "Update";
             this.btnUk.UseVisualStyleBackColor = false;
+            this.btnUk.Click += new System.EventHandler(this.btnUk_Click);
             // 
             // UpdateKue
             // 

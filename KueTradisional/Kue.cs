@@ -37,12 +37,49 @@ namespace KueTradisional
         private void btnUpdatek_Click(object sender, EventArgs e)
         {
             UpdateKue f2 = new UpdateKue();
-            f2.Show();
-        }
+            string idKue = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            string nama = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            string harga = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            f2.SetData(idKue, nama, harga);
+            f2.ShowDialog();
 
+            LoadData();
+        }
         private void Kueform_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoadData()
+        {
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+
+            dataGridView1.Columns.Add("KueID", "KueID");
+            dataGridView1.Columns.Add("NamaKue", "NamaKue");
+            dataGridView1.Columns.Add("Harga", "Harga");
+
+            string query = "SELECT * FROM Kue";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                dataGridView1.Rows.Add(
+                    reader["KueID"].ToString(),
+                    reader["NamaKue"].ToString(),
+                    reader["Harga"].ToString()
+                );
+            }
+
+            reader.Close();
+            conn.Close();
         }
 
         private void btnTampilk_Click(object sender, EventArgs e)
