@@ -22,5 +22,11 @@ namespace KueTradisional
             TambahPesanan f2 = new TambahPesanan();
             f2.Show();
         }
+
+        private void btnUpdatep_Click(object sender, EventArgs e)
+        {
+            EditPesanan f2 = new EditPesanan();
+            f2.Show();
+        }
     }
 }
