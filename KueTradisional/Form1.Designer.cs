@@ -34,12 +34,17 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnKue = new System.Windows.Forms.Button();
             this.btnPesanan = new System.Windows.Forms.Button();
+            this.logo = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panelside.SuspendLayout();
+            this.panelheader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelside
             // 
             this.panelside.BackColor = System.Drawing.Color.Gray;
+            this.panelside.Controls.Add(this.logo);
             this.panelside.Controls.Add(this.btnPesanan);
             this.panelside.Controls.Add(this.btnKue);
             this.panelside.Controls.Add(this.btnConnect);
@@ -52,6 +57,7 @@
             // panelheader
             // 
             this.panelheader.BackColor = System.Drawing.Color.Silver;
+            this.panelheader.Controls.Add(this.btnClose);
             this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelheader.Location = new System.Drawing.Point(0, 0);
             this.panelheader.Name = "panelheader";
@@ -82,6 +88,7 @@
             // btnKue
             // 
             this.btnKue.BackColor = System.Drawing.Color.Gray;
+            this.btnKue.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnKue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKue.Font = new System.Drawing.Font("Lucida Sans", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKue.ForeColor = System.Drawing.Color.White;
@@ -105,6 +112,29 @@
             this.btnPesanan.Text = "Pesanan";
             this.btnPesanan.UseVisualStyleBackColor = false;
             // 
+            // logo
+            // 
+            this.logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.logo.Image = global::KueTradisional.Properties.Resources.Logo_sistem_pemesanan_kue_tradisional__3_;
+            this.logo.Location = new System.Drawing.Point(49, 0);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(270, 270);
+            this.logo.TabIndex = 0;
+            this.logo.TabStop = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Lucida Sans", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(1682, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(47, 44);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -118,6 +148,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.panelside.ResumeLayout(false);
+            this.panelheader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -130,6 +162,8 @@
         private System.Windows.Forms.Panel mainpanel;
         private System.Windows.Forms.Button btnPesanan;
         private System.Windows.Forms.Button btnKue;
+        private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.Button btnClose;
     }
 }
 
