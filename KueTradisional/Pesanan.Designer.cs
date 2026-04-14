@@ -38,6 +38,8 @@
             this.lblTp = new System.Windows.Forms.Label();
             this.txtTp = new System.Windows.Forms.TextBox();
             this.btnTp = new System.Windows.Forms.Button();
+            this.scrp = new System.Windows.Forms.Label();
+            this.txtScrp = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,12 +161,32 @@
             this.btnTp.Text = "Hitung";
             this.btnTp.UseVisualStyleBackColor = false;
             // 
+            // scrp
+            // 
+            this.scrp.AutoSize = true;
+            this.scrp.Font = new System.Drawing.Font("Lucida Sans", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrp.ForeColor = System.Drawing.Color.DimGray;
+            this.scrp.Location = new System.Drawing.Point(686, 48);
+            this.scrp.Name = "scrp";
+            this.scrp.Size = new System.Drawing.Size(118, 28);
+            this.scrp.TabIndex = 13;
+            this.scrp.Text = "Search : ";
+            // 
+            // txtScrp
+            // 
+            this.txtScrp.Location = new System.Drawing.Point(810, 45);
+            this.txtScrp.Name = "txtScrp";
+            this.txtScrp.Size = new System.Drawing.Size(282, 31);
+            this.txtScrp.TabIndex = 14;
+            // 
             // Pesananform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1345, 848);
+            this.Controls.Add(this.txtScrp);
+            this.Controls.Add(this.scrp);
             this.Controls.Add(this.btnTp);
             this.Controls.Add(this.txtTp);
             this.Controls.Add(this.lblTp);
@@ -194,5 +216,7 @@
         private System.Windows.Forms.Label lblTp;
         private System.Windows.Forms.TextBox txtTp;
         private System.Windows.Forms.Button btnTp;
+        private System.Windows.Forms.Label scrp;
+        private System.Windows.Forms.TextBox txtScrp;
     }
 }

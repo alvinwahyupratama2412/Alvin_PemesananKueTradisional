@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbljudulk = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnTambahk = new System.Windows.Forms.Button();
@@ -38,6 +38,8 @@
             this.lblTk = new System.Windows.Forms.Label();
             this.txtTk = new System.Windows.Forms.TextBox();
             this.btnTk = new System.Windows.Forms.Button();
+            this.scrp = new System.Windows.Forms.Label();
+            this.txtScrp = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,14 +58,14 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Location = new System.Drawing.Point(21, 101);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
@@ -160,12 +162,32 @@
             this.btnTk.Text = "Hitung";
             this.btnTk.UseVisualStyleBackColor = false;
             // 
+            // scrp
+            // 
+            this.scrp.AutoSize = true;
+            this.scrp.Font = new System.Drawing.Font("Lucida Sans", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrp.ForeColor = System.Drawing.Color.DimGray;
+            this.scrp.Location = new System.Drawing.Point(686, 48);
+            this.scrp.Name = "scrp";
+            this.scrp.Size = new System.Drawing.Size(118, 28);
+            this.scrp.TabIndex = 14;
+            this.scrp.Text = "Search : ";
+            // 
+            // txtScrp
+            // 
+            this.txtScrp.Location = new System.Drawing.Point(810, 45);
+            this.txtScrp.Name = "txtScrp";
+            this.txtScrp.Size = new System.Drawing.Size(282, 31);
+            this.txtScrp.TabIndex = 15;
+            // 
             // Kueform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1345, 848);
+            this.Controls.Add(this.txtScrp);
+            this.Controls.Add(this.scrp);
             this.Controls.Add(this.btnTk);
             this.Controls.Add(this.txtTk);
             this.Controls.Add(this.lblTk);
@@ -195,5 +217,7 @@
         private System.Windows.Forms.Label lblTk;
         private System.Windows.Forms.TextBox txtTk;
         private System.Windows.Forms.Button btnTk;
+        private System.Windows.Forms.Label scrp;
+        private System.Windows.Forms.TextBox txtScrp;
     }
 }
