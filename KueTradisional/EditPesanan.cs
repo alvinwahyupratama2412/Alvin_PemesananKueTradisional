@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace KueTradisional
 {
     public partial class EditPesanan : Form
@@ -15,6 +16,11 @@ namespace KueTradisional
         public EditPesanan()
         {
             InitializeComponent();
+        }
+
+        private void EditPesanan_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

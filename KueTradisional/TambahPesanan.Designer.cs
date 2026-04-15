@@ -30,12 +30,12 @@
         {
             this.lblNamatp = new System.Windows.Forms.Label();
             this.txtTpnama = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbkue = new System.Windows.Forms.ComboBox();
             this.lblnamaptp = new System.Windows.Forms.Label();
             this.lblJumtp = new System.Windows.Forms.Label();
             this.txtpJumlah = new System.Windows.Forms.TextBox();
             this.lblAmtp = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtma = new System.Windows.Forms.DateTimePicker();
             this.btnSimpantp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -57,13 +57,13 @@
             this.txtTpnama.TabIndex = 3;
             this.txtTpnama.TextChanged += new System.EventHandler(this.txtTpnama_TextChanged);
             // 
-            // comboBox1
+            // cmbkue
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(252, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(220, 33);
-            this.comboBox1.TabIndex = 4;
+            this.cmbkue.FormattingEnabled = true;
+            this.cmbkue.Location = new System.Drawing.Point(252, 29);
+            this.cmbkue.Name = "cmbkue";
+            this.cmbkue.Size = new System.Drawing.Size(220, 33);
+            this.cmbkue.TabIndex = 4;
             // 
             // lblnamaptp
             // 
@@ -102,12 +102,12 @@
             this.lblAmtp.TabIndex = 8;
             this.lblAmtp.Text = "Tanggal Ambil";
             // 
-            // dateTimePicker1
+            // dtma
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(252, 276);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 31);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dtma.Location = new System.Drawing.Point(252, 276);
+            this.dtma.Name = "dtma";
+            this.dtma.Size = new System.Drawing.Size(200, 31);
+            this.dtma.TabIndex = 9;
             // 
             // btnSimpantp
             // 
@@ -128,12 +128,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 467);
             this.Controls.Add(this.btnSimpantp);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtma);
             this.Controls.Add(this.lblAmtp);
             this.Controls.Add(this.txtpJumlah);
             this.Controls.Add(this.lblJumtp);
             this.Controls.Add(this.lblnamaptp);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbkue);
             this.Controls.Add(this.txtTpnama);
             this.Controls.Add(this.lblNamatp);
             this.Name = "TambahPesanan";
@@ -147,12 +147,12 @@
 
         private System.Windows.Forms.Label lblNamatp;
         private System.Windows.Forms.TextBox txtTpnama;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbkue;
         private System.Windows.Forms.Label lblnamaptp;
         private System.Windows.Forms.Label lblJumtp;
         private System.Windows.Forms.TextBox txtpJumlah;
         private System.Windows.Forms.Label lblAmtp;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtma;
         private System.Windows.Forms.Button btnSimpantp;
     }
 }

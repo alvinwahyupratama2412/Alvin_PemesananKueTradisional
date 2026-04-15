@@ -150,6 +150,7 @@
             this.Controls.Add(this.lblNamaup);
             this.Name = "EditPesanan";
             this.Text = "EditPesanan";
+            this.Load += new System.EventHandler(this.EditPesanan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
