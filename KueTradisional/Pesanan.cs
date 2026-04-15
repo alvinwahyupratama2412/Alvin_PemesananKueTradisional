@@ -87,5 +87,10 @@ namespace KueTradisional
                 MessageBox.Show("Gagal menampilkan data : " + ex.Message);
             }
         }
+
+        private void btnHapusp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

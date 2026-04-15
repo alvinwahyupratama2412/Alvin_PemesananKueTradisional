@@ -120,6 +120,7 @@
             this.btnSimpantp.TabIndex = 10;
             this.btnSimpantp.Text = "Simpan";
             this.btnSimpantp.UseVisualStyleBackColor = false;
+            this.btnSimpantp.Click += new System.EventHandler(this.btnSimpantp_Click);
             // 
             // TambahPesanan
             // 
