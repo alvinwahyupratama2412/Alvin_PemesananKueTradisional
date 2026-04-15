@@ -25,7 +25,44 @@ namespace KueTradisional
 
         private void btnHapusk_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
 
+                DialogResult resultConfirm = MessageBox.Show(
+                    "Yakin ingin menghapus data?",
+                    "Konfirmasi",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (resultConfirm == DialogResult.Yes)
+                {
+                    string idKue = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string query = "DELETE FROM Kue WHERE KueID = @KueID";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@KueID", idKue);
+
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Data berhasil dihapus");
+                        btnTampilk_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data tidak ditemukan");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
         }
 
         private void btnTambahk_Click(object sender, EventArgs e)
