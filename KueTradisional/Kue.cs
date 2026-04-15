@@ -119,6 +119,33 @@ namespace KueTradisional
             conn.Close();
         }
 
+        private void btnTk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                string query = "SELECT COUNT(*) FROM Kue";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                int jumlah = (int)cmd.ExecuteScalar();
+
+                txtTk.Text = jumlah.ToString();
+
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void btnTampilk_Click(object sender, EventArgs e)
         {
             try
@@ -158,7 +185,7 @@ namespace KueTradisional
             }
         }
 
-        private void btnTk_Click(object sender, EventArgs e)
+        private void txtScrp_TextChanged_1(object sender, EventArgs e)
         {
             try
             {
@@ -167,23 +194,37 @@ namespace KueTradisional
                     conn.Open();
                 }
 
-                string query = "SELECT COUNT(*) FROM Kue";
+                string query = "SELECT * FROM Kue WHERE NamaKue LIKE @keyword";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@keyword", "%" + txtScrp.Text + "%");
 
-                int jumlah = (int)cmd.ExecuteScalar();
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                txtTk.Text = jumlah.ToString();
+                dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Clear();
 
-                if (conn.State == ConnectionState.Open)
+                dataGridView1.Columns.Add("KueID", "KueID");
+                dataGridView1.Columns.Add("NamaKue", "NamaKue");
+                dataGridView1.Columns.Add("Harga", "Harga");
+
+                while (reader.Read())
                 {
-                    conn.Close();
+                    dataGridView1.Rows.Add(
+                        reader["KueID"].ToString(),
+                        reader["NamaKue"].ToString(),
+                        reader["Harga"].ToString()
+                    );
                 }
+
+                reader.Close();
+                conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Search error: " + ex.Message);
             }
+
         }
     }
 }
