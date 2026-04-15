@@ -157,5 +157,33 @@ namespace KueTradisional
                 MessageBox.Show("Gagal menampilkan data : " + ex.Message);
             }
         }
+
+        private void btnTk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+
+                string query = "SELECT COUNT(*) FROM Kue";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                int jumlah = (int)cmd.ExecuteScalar();
+
+                txtTk.Text = jumlah.ToString();
+
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
