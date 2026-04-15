@@ -132,6 +132,7 @@
             this.btnUp.TabIndex = 20;
             this.btnUp.Text = "Update";
             this.btnUp.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // EditPesanan
             // 

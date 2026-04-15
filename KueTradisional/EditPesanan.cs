@@ -27,5 +27,11 @@ namespace KueTradisional
         {
 
         }
+        private int pesananID;
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
