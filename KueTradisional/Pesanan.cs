@@ -96,44 +96,23 @@ namespace KueTradisional
         {
             try
             {
-                if (conn.State == ConnectionState.Closed)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("sp_SearchPesanan", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Keyword", txtScrp.Text);
+
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            dtPesanan = new DataTable();
+                            da.Fill(dtPesanan);
+
+                            bindingSourcePesanan.DataSource = dtPesanan;
+                            dataGridView1.DataSource = bindingSourcePesanan;
+                        }
+                    }
                 }
-
-                string query = "SELECT * FROM Pesanan WHERE NamaPelanggan LIKE @keyword";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@keyword", "%" + txtScrp.Text + "%");
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                dataGridView1.Rows.Clear();
-                dataGridView1.Columns.Clear();
-
-                dataGridView1.Columns.Add("PesananID", "PesananID");
-                dataGridView1.Columns.Add("KueID", "KueID");
-                dataGridView1.Columns.Add("NamaPelanggan", "NamaPelanggan");
-                dataGridView1.Columns.Add("Jumlah", "Jumlah");
-                dataGridView1.Columns.Add("TanggalPesan", "TanggalPesan");
-                dataGridView1.Columns.Add("TanggalAmbil", "TanggalAmbil");
-                dataGridView1.Columns.Add("TotalHarga", "TotalHarga");
-
-                while (reader.Read())
-                {
-                    dataGridView1.Rows.Add(
-                        reader["PesananID"].ToString(),
-                        reader["KueID"].ToString(),
-                        reader["NamaPelanggan"].ToString(),
-                        reader["Jumlah"].ToString(),
-                        reader["TanggalPesan"].ToString(),
-                        reader["TanggalAmbil"].ToString(),
-                        reader["TotalHarga"].ToString()
-                    );
-                }
-
-                reader.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
