@@ -30,9 +30,10 @@ namespace KueTradisional
         {
             try
             {
-                if (conn.State == System.Data.ConnectionState.Closed)
+                if (dataGridView1.CurrentRow == null)
                 {
-                    conn.Open();
+                    MessageBox.Show("Pilih data kue terlebih dahulu");
+                    return;
                 }
 
                 DialogResult resultConfirm = MessageBox.Show(
@@ -43,23 +44,22 @@ namespace KueTradisional
 
                 if (resultConfirm == DialogResult.Yes)
                 {
-                    string idKue = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    string query = "DELETE FROM Kue WHERE KueID = @KueID";
+                    int idKue = Convert.ToInt32(dataGridView1.CurrentRow.Cells["KueID"].Value);
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@KueID", idKue);
-
-                    int result = cmd.ExecuteNonQuery();
-
-                    if (result > 0)
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        MessageBox.Show("Data berhasil dihapus");
-                        btnTampilk_Click(sender, e);
+                        using (SqlCommand cmd = new SqlCommand("sp_DeleteKue", conn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@KueID", idKue);
+
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Data tidak ditemukan");
-                    }
+
+                    MessageBox.Show("Data berhasil dihapus");
+                    LoadData();
                 }
             }
             catch (Exception ex)
