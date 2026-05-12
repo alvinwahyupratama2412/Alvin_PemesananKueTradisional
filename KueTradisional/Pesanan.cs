@@ -148,27 +148,27 @@ namespace KueTradisional
         {
             try
             {
-                if (conn.State == ConnectionState.Closed)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    conn.Open();
-                }
+                    using (SqlCommand cmd = new SqlCommand("sp_CountPesanan", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                string query = "SELECT COUNT(*) FROM Pesanan";
+                        SqlParameter outputParam = new SqlParameter("@Total", SqlDbType.Int);
+                        outputParam.Direction = ParameterDirection.Output;
 
-                SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.Add(outputParam);
 
-                int jumlah = (int)cmd.ExecuteScalar();
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
 
-                txtTp.Text = jumlah.ToString();
-
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
+                        txtTp.Text = outputParam.Value.ToString();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Gagal menghitung total pesanan: " + ex.Message);
             }
         }
 
