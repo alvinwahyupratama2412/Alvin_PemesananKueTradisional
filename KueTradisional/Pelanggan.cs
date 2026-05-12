@@ -161,5 +161,13 @@ namespace KueTradisional
                 MessageBox.Show("Terjadi kesalahan: " + ex.Message);
             }
         }
+
+        private void btnTambahpl_Click(object sender, EventArgs e)
+        {
+            TambahPelanggan f = new TambahPelanggan();
+            f.ShowDialog();
+
+            LoadData();
+        }
     }
 }
