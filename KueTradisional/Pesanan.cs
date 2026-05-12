@@ -36,10 +36,19 @@ namespace KueTradisional
 
         private void btnUpdatep_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Pilih data pesanan terlebih dahulu");
+                return;
+            }
+
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
             EditPesanan f2 = new EditPesanan();
-            f2.Show();
             f2.LoadData(id);
+            f2.ShowDialog();
+
+            LoadData();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
