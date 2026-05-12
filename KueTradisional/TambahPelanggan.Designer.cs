@@ -38,18 +38,20 @@
             // lblnm
             // 
             this.lblnm.AutoSize = true;
+            this.lblnm.Font = new System.Drawing.Font("Lucida Sans", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnm.Location = new System.Drawing.Point(92, 81);
             this.lblnm.Name = "lblnm";
-            this.lblnm.Size = new System.Drawing.Size(80, 25);
+            this.lblnm.Size = new System.Drawing.Size(99, 28);
             this.lblnm.TabIndex = 0;
             this.lblnm.Text = "Nama  ";
             // 
             // lblno
             // 
             this.lblno.AutoSize = true;
+            this.lblno.Font = new System.Drawing.Font("Lucida Sans", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblno.Location = new System.Drawing.Point(92, 162);
             this.lblno.Name = "lblno";
-            this.lblno.Size = new System.Drawing.Size(72, 25);
+            this.lblno.Size = new System.Drawing.Size(85, 28);
             this.lblno.TabIndex = 1;
             this.lblno.Text = "No Hp";
             // 
@@ -69,12 +71,15 @@
             // 
             // btntambahpl
             // 
-            this.btntambahpl.Location = new System.Drawing.Point(785, 416);
+            this.btntambahpl.BackColor = System.Drawing.Color.DarkCyan;
+            this.btntambahpl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btntambahpl.ForeColor = System.Drawing.Color.White;
+            this.btntambahpl.Location = new System.Drawing.Point(767, 416);
             this.btntambahpl.Name = "btntambahpl";
-            this.btntambahpl.Size = new System.Drawing.Size(114, 45);
+            this.btntambahpl.Size = new System.Drawing.Size(148, 49);
             this.btntambahpl.TabIndex = 4;
             this.btntambahpl.Text = "Tambah";
-            this.btntambahpl.UseVisualStyleBackColor = true;
+            this.btntambahpl.UseVisualStyleBackColor = false;
             // 
             // TambahPelanggan
             // 
