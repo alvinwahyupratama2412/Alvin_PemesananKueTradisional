@@ -20,6 +20,15 @@ namespace KueTradisional
         {
             InitializeComponent();
         }
+        public void SetData(string PelangganID,
+                            string NamaPelanggan,
+                            string NoHP)
+        {
+            idPelanggan = PelangganID;
+
+            txtnm.Text = NamaPelanggan;
+            txtno.Text = NoHP;
+        }
 
         private void EditPelanggan_Load(object sender, EventArgs e)
         {
