@@ -88,6 +88,12 @@
     <Compile Include="TambahKue.Designer.cs">
       <DependentUpon>TambahKue.cs</DependentUpon>
     </Compile>
+    <Compile Include="TambahPelanggan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TambahPelanggan.Designer.cs">
+      <DependentUpon>TambahPelanggan.cs</DependentUpon>
+    </Compile>
     <Compile Include="TambahPesanan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </Compile>
     <EmbeddedResource Include="TambahKue.resx">
       <DependentUpon>TambahKue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TambahPelanggan.resx">
+      <DependentUpon>TambahPelanggan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TambahPesanan.resx">
       <DependentUpon>TambahPesanan.cs</DependentUpon>
