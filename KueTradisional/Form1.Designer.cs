@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelside = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.btnPesanan = new System.Windows.Forms.Button();
             this.btnKue = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -36,15 +37,16 @@
             this.lbltitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.mainpanel = new System.Windows.Forms.Panel();
-            this.logo = new System.Windows.Forms.PictureBox();
+            this.btnPelanggan = new System.Windows.Forms.Button();
             this.panelside.SuspendLayout();
-            this.panelheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.panelheader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelside
             // 
             this.panelside.BackColor = System.Drawing.Color.Gray;
+            this.panelside.Controls.Add(this.btnPelanggan);
             this.panelside.Controls.Add(this.logo);
             this.panelside.Controls.Add(this.btnPesanan);
             this.panelside.Controls.Add(this.btnKue);
@@ -54,6 +56,17 @@
             this.panelside.Name = "panelside";
             this.panelside.Size = new System.Drawing.Size(358, 919);
             this.panelside.TabIndex = 0;
+            // 
+            // logo
+            // 
+            this.logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.logo.Image = global::KueTradisional.Properties.Resources.Logo_sistem_pemesanan_kue_tradisional__3_;
+            this.logo.Location = new System.Drawing.Point(49, 0);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(270, 270);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logo.TabIndex = 0;
+            this.logo.TabStop = false;
             // 
             // btnPesanan
             // 
@@ -147,16 +160,20 @@
             this.mainpanel.TabIndex = 2;
             this.mainpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainpanel_Paint);
             // 
-            // logo
+            // btnPelanggan
             // 
-            this.logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.logo.Image = global::KueTradisional.Properties.Resources.Logo_sistem_pemesanan_kue_tradisional__3_;
-            this.logo.Location = new System.Drawing.Point(49, 0);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(270, 270);
-            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logo.TabIndex = 0;
-            this.logo.TabStop = false;
+            this.btnPelanggan.BackColor = System.Drawing.Color.Gray;
+            this.btnPelanggan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPelanggan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPelanggan.Font = new System.Drawing.Font("Lucida Sans", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPelanggan.ForeColor = System.Drawing.Color.White;
+            this.btnPelanggan.Location = new System.Drawing.Point(0, 528);
+            this.btnPelanggan.Name = "btnPelanggan";
+            this.btnPelanggan.Size = new System.Drawing.Size(358, 106);
+            this.btnPelanggan.TabIndex = 3;
+            this.btnPelanggan.Text = "Pelanggan";
+            this.btnPelanggan.UseVisualStyleBackColor = false;
+            this.btnPelanggan.Click += new System.EventHandler(this.btnPelanggan_Click);
             // 
             // Form1
             // 
@@ -172,9 +189,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelside.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.panelheader.ResumeLayout(false);
             this.panelheader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -190,6 +207,7 @@
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lbltitle;
+        private System.Windows.Forms.Button btnPelanggan;
     }
 }
 

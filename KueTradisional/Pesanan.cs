@@ -211,5 +211,10 @@ namespace KueTradisional
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Pesananform_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

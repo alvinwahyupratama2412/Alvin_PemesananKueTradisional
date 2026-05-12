@@ -68,6 +68,12 @@
     <Compile Include="Kue.Designer.cs">
       <DependentUpon>Kue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pelanggan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pelanggan.Designer.cs">
+      <DependentUpon>Pelanggan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pesanan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kue.resx">
       <DependentUpon>Kue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pelanggan.resx">
+      <DependentUpon>Pelanggan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pesanan.resx">
       <DependentUpon>Pesanan.cs</DependentUpon>

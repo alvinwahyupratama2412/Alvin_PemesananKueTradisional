@@ -78,5 +78,10 @@ namespace KueTradisional
         {
             ConnectDataBase();
         }
+
+        private void btnPelanggan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

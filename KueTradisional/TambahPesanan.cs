@@ -127,5 +127,10 @@ namespace KueTradisional
             txtTpnama.Clear();
             txtpJumlah.Clear();
         }
+
+        private void TambahPesanan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
