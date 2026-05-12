@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblNamatp = new System.Windows.Forms.Label();
-            this.txtTpnama = new System.Windows.Forms.TextBox();
             this.cmbkue = new System.Windows.Forms.ComboBox();
             this.lblnamaptp = new System.Windows.Forms.Label();
             this.lblJumtp = new System.Windows.Forms.Label();
@@ -37,6 +36,7 @@
             this.lblAmtp = new System.Windows.Forms.Label();
             this.dtma = new System.Windows.Forms.DateTimePicker();
             this.btnSimpantp = new System.Windows.Forms.Button();
+            this.cmbPelanggan = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblNamatp
@@ -48,14 +48,6 @@
             this.lblNamatp.Size = new System.Drawing.Size(136, 28);
             this.lblNamatp.TabIndex = 1;
             this.lblNamatp.Text = "Nama Kue";
-            // 
-            // txtTpnama
-            // 
-            this.txtTpnama.Location = new System.Drawing.Point(252, 105);
-            this.txtTpnama.Name = "txtTpnama";
-            this.txtTpnama.Size = new System.Drawing.Size(328, 31);
-            this.txtTpnama.TabIndex = 3;
-            this.txtTpnama.TextChanged += new System.EventHandler(this.txtTpnama_TextChanged);
             // 
             // cmbkue
             // 
@@ -122,11 +114,20 @@
             this.btnSimpantp.UseVisualStyleBackColor = false;
             this.btnSimpantp.Click += new System.EventHandler(this.btnSimpantp_Click);
             // 
+            // cmbPelanggan
+            // 
+            this.cmbPelanggan.FormattingEnabled = true;
+            this.cmbPelanggan.Location = new System.Drawing.Point(252, 105);
+            this.cmbPelanggan.Name = "cmbPelanggan";
+            this.cmbPelanggan.Size = new System.Drawing.Size(328, 33);
+            this.cmbPelanggan.TabIndex = 11;
+            // 
             // TambahPesanan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 467);
+            this.Controls.Add(this.cmbPelanggan);
             this.Controls.Add(this.btnSimpantp);
             this.Controls.Add(this.dtma);
             this.Controls.Add(this.lblAmtp);
@@ -134,7 +135,6 @@
             this.Controls.Add(this.lblJumtp);
             this.Controls.Add(this.lblnamaptp);
             this.Controls.Add(this.cmbkue);
-            this.Controls.Add(this.txtTpnama);
             this.Controls.Add(this.lblNamatp);
             this.Name = "TambahPesanan";
             this.Text = "TambahPesanan";
@@ -147,7 +147,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblNamatp;
-        private System.Windows.Forms.TextBox txtTpnama;
         private System.Windows.Forms.ComboBox cmbkue;
         private System.Windows.Forms.Label lblnamaptp;
         private System.Windows.Forms.Label lblJumtp;
@@ -155,5 +154,6 @@
         private System.Windows.Forms.Label lblAmtp;
         private System.Windows.Forms.DateTimePicker dtma;
         private System.Windows.Forms.Button btnSimpantp;
+        private System.Windows.Forms.ComboBox cmbPelanggan;
     }
 }

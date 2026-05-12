@@ -22,6 +22,7 @@ namespace KueTradisional
             InitializeComponent();
             conn = new SqlConnection(connectionString);
             LoadKue();
+            LoadPelanggan();
         }
 
         private void txtTpnama_TextChanged(object sender, EventArgs e)
