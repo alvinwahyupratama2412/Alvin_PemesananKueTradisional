@@ -29,7 +29,50 @@ namespace KueTradisional
 
         private void btntambahpl_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (txtnm.Text == "")
+                {
+                    MessageBox.Show("Nama pelanggan harus diisi");
+                    txtnm.Focus();
+                    return;
+                }
 
+                if (txtno.Text == "")
+                {
+                    MessageBox.Show("No HP harus diisi");
+                    txtno.Focus();
+                    return;
+                }
+
+                if (!txtno.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("No HP hanya boleh angka");
+                    txtno.Focus();
+                    return;
+                }
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_InsertPelanggan", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@NamaPelanggan", txtnm.Text);
+                        cmd.Parameters.AddWithValue("@NoHP", txtno.Text);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Data pelanggan berhasil ditambahkan");
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
         }
     }
 }
