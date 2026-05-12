@@ -116,5 +116,50 @@ namespace KueTradisional
                 MessageBox.Show("Search error: " + ex.Message);
             }
         }
+
+        private void btnHapuspl_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow == null)
+                {
+                    MessageBox.Show("Pilih data pelanggan terlebih dahulu");
+                    return;
+                }
+
+                DialogResult resultConfirm = MessageBox.Show(
+                    "Yakin ingin menghapus data?",
+                    "Konfirmasi",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (resultConfirm == DialogResult.Yes)
+                {
+                    int idPelanggan = Convert.ToInt32(
+                        dataGridView1.CurrentRow.Cells["PelangganID"].Value
+                    );
+
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        using (SqlCommand cmd = new SqlCommand("sp_DeletePelanggan", conn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.AddWithValue("@PelangganID", idPelanggan);
+
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Data pelanggan berhasil dihapus");
+                    LoadData();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
+        }
     }
 }
