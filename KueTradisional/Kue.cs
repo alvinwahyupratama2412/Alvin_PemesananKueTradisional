@@ -231,5 +231,10 @@ namespace KueTradisional
         {
 
         }
+
+        private void bindingNavigatorCountItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
