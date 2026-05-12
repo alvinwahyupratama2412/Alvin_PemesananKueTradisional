@@ -27,7 +27,15 @@ namespace KueTradisional
 
         private void Pelangganform_Load(object sender, EventArgs e)
         {
+            bindingNavigator1.BindingSource = bindingSourcePelanggan;
 
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            LoadData();
         }
     }
 }
