@@ -15,7 +15,7 @@ namespace KueTradisional
     {
         private readonly SqlConnection conn;
         private readonly string connectionString =
-            "Data Source=LAPTOP-5BS6SFFN\\ALVIN;Initial Catalog=KueTradisionalDB;Integrated Security=True";
+            "Data Source=DESKTOP-RF6R80E\\ALVINWAHYU12;Initial Catalog=KueTradisionalDB;Integrated Security=True";
 
         public EditPesanan()
         {

@@ -16,5 +16,10 @@ namespace KueTradisional
         {
             InitializeComponent();
         }
+
+        private void EditPelanggan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

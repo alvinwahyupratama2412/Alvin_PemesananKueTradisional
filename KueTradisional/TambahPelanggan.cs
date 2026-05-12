@@ -16,5 +16,10 @@ namespace KueTradisional
         {
             InitializeComponent();
         }
+
+        private void TambahPelanggan_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

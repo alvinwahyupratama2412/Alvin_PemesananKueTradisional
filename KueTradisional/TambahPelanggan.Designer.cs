@@ -93,6 +93,7 @@
             this.Controls.Add(this.lblnm);
             this.Name = "TambahPelanggan";
             this.Text = "TambahPelanggan";
+            this.Load += new System.EventHandler(this.TambahPelanggan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
