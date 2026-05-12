@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditPelanggan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPelanggan.Designer.cs">
+      <DependentUpon>EditPelanggan.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditPesanan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="UpdateKue.Designer.cs">
       <DependentUpon>UpdateKue.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditPelanggan.resx">
+      <DependentUpon>EditPelanggan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditPesanan.resx">
       <DependentUpon>EditPesanan.cs</DependentUpon>
     </EmbeddedResource>

@@ -74,7 +74,7 @@
             this.btntambahpl.BackColor = System.Drawing.Color.DarkCyan;
             this.btntambahpl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btntambahpl.ForeColor = System.Drawing.Color.White;
-            this.btntambahpl.Location = new System.Drawing.Point(767, 416);
+            this.btntambahpl.Location = new System.Drawing.Point(772, 394);
             this.btntambahpl.Name = "btntambahpl";
             this.btntambahpl.Size = new System.Drawing.Size(148, 49);
             this.btntambahpl.TabIndex = 4;
@@ -85,7 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 498);
+            this.ClientSize = new System.Drawing.Size(945, 469);
             this.Controls.Add(this.btntambahpl);
             this.Controls.Add(this.txtno);
             this.Controls.Add(this.txtnm);
