@@ -226,5 +226,22 @@ namespace KueTradisional
 
             LoadData();
         }
+
+        private void LoadData()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM vw_Pesanan";
+
+                using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                {
+                    dtPesanan = new DataTable();
+                    da.Fill(dtPesanan);
+
+                    bindingSourcePesanan.DataSource = dtPesanan;
+                    dataGridView1.DataSource = bindingSourcePesanan;
+                }
+            }
+        }
     }
 }
