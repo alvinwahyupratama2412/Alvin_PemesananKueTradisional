@@ -74,5 +74,12 @@ namespace KueTradisional
                 MessageBox.Show("Terjadi kesalahan: " + ex.Message);
             }
         }
+        private void ClearForm()
+        {
+            txtnm.Clear();
+            txtno.Clear();
+
+            txtnm.Focus();
+        }
     }
 }
