@@ -87,5 +87,34 @@ namespace KueTradisional
                 MessageBox.Show("Gagal menghitung total pelanggan: " + ex.Message);
             }
         }
+
+        private void txtScrp_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_SearchPelanggan", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@Keyword", txtScrp.Text);
+
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            dtPelanggan = new DataTable();
+                            da.Fill(dtPelanggan);
+
+                            bindingSourcePelanggan.DataSource = dtPelanggan;
+                            dataGridView1.DataSource = bindingSourcePelanggan;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search error: " + ex.Message);
+            }
+        }
     }
 }
