@@ -29,7 +29,9 @@ namespace KueTradisional
         private void btnTambahp_Click(object sender, EventArgs e)
         {
             TambahPesanan f2 = new TambahPesanan();
-            f2.Show();
+            f2.ShowDialog();
+
+            LoadData();
         }
 
         private void btnUpdatep_Click(object sender, EventArgs e)
