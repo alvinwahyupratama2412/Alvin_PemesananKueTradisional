@@ -45,24 +45,29 @@ namespace KueTradisional
                     return;
                 }
 
-                using (SqlCommand cmd = new SqlCommand("sp_UpdateKue", conn))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
 
-                    cmd.Parameters.AddWithValue("@KueID", idKue);
-                    cmd.Parameters.AddWithValue("@NamaKue", txtUknama.Text);
-                    cmd.Parameters.AddWithValue("@Harga", harga);
-
-                    int result = cmd.ExecuteNonQuery();
-
-                    if (result > 0)
+                    using (SqlCommand cmd = new SqlCommand("sp_UpdateKue", conn))
                     {
-                        MessageBox.Show("Data berhasil diupdate");
-                        ClearForm();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Data tidak ditemukan");
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@KueID", idKue);
+                        cmd.Parameters.AddWithValue("@NamaKue", txtUknama.Text);
+                        cmd.Parameters.AddWithValue("@Harga", harga);
+
+                        int result = cmd.ExecuteNonQuery();
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Data berhasil diupdate");
+                            ClearForm();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Data tidak ditemukan");
+                        }
                     }
                 }
             }
