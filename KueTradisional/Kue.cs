@@ -13,6 +13,9 @@ namespace KueTradisional
 {
     public partial class Kueform : Form
     {
+        private BindingSource bindingSourceKue = new BindingSource();
+        private DataTable dtKue = new DataTable();
+
         private readonly SqlConnection conn;
         private readonly string connectionString =
             "Data Source=DESKTOP-RF6R80E\\ALVINWAHYU12;Initial Catalog=KueTradisionalDB;Integrated Security=True";
