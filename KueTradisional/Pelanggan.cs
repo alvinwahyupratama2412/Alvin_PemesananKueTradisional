@@ -54,5 +54,10 @@ namespace KueTradisional
                 }
             }
         }
+
+        private void btnTampilpl_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }
