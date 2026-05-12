@@ -59,7 +59,7 @@ namespace KueTradisional
 
                         int result = cmd.ExecuteNonQuery();
 
-                        if (result > 0)
+                        if (result < 0)
                         {
                             MessageBox.Show("Data berhasil diupdate");
                             ClearForm();
