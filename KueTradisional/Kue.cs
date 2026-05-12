@@ -100,34 +100,19 @@ namespace KueTradisional
 
         private void LoadData()
         {
-            if (conn.State == ConnectionState.Closed)
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                conn.Open();
+                string query = "SELECT * FROM vw_Kue";
+
+                using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                {
+                    dtKue = new DataTable();
+                    da.Fill(dtKue);
+
+                    bindingSourceKue.DataSource = dtKue;
+                    dataGridView1.DataSource = bindingSourceKue;
+                }
             }
-
-            dataGridView1.Rows.Clear();
-            dataGridView1.Columns.Clear();
-
-            dataGridView1.Columns.Add("KueID", "KueID");
-            dataGridView1.Columns.Add("NamaKue", "NamaKue");
-            dataGridView1.Columns.Add("Harga", "Harga");
-
-            string query = "SELECT * FROM Kue";
-
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                dataGridView1.Rows.Add(
-                    reader["KueID"].ToString(),
-                    reader["NamaKue"].ToString(),
-                    reader["Harga"].ToString()
-                );
-            }
-
-            reader.Close();
-            conn.Close();
         }
 
         private void btnTk_Click(object sender, EventArgs e)
