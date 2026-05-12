@@ -34,5 +34,62 @@ namespace KueTradisional
         {
 
         }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtnm.Text == "")
+                {
+                    MessageBox.Show("Nama pelanggan harus diisi");
+                    txtnm.Focus();
+                    return;
+                }
+
+                if (txtno.Text == "")
+                {
+                    MessageBox.Show("No HP harus diisi");
+                    txtno.Focus();
+                    return;
+                }
+
+                if (!txtno.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("No HP hanya boleh angka");
+                    txtno.Focus();
+                    return;
+                }
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("sp_UpdatePelanggan", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@PelangganID", idPelanggan);
+                        cmd.Parameters.AddWithValue("@NamaPelanggan", txtnm.Text);
+                        cmd.Parameters.AddWithValue("@NoHP", txtno.Text);
+
+                        int result = cmd.ExecuteNonQuery();
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Data pelanggan berhasil diupdate");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Data tidak ditemukan");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
+        }
     }
 }

@@ -80,6 +80,7 @@
             this.btnUp.TabIndex = 21;
             this.btnUp.Text = "Update";
             this.btnUp.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // EditPelanggan
             // 
