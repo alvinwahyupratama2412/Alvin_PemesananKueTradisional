@@ -32,11 +32,6 @@ namespace KueTradisional
         {
             try
             {
-                if (conn.State == System.Data.ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-
                 if (txtTknama.Text == "")
                 {
                     MessageBox.Show("Nama Kue harus diisi");
@@ -51,27 +46,29 @@ namespace KueTradisional
                     return;
                 }
 
-                string query = @"INSERT INTO Kue
-                        (NamaKue, Harga)
-                        VALUES
-                        (@NamaKue, @Harga)";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@NamaKue", txtTknama.Text);
-                cmd.Parameters.AddWithValue("@Harga", txtTkharga.Text);
-
-                int result = cmd.ExecuteNonQuery();
-
-                if (result > 0)
+                if (!int.TryParse(txtTkharga.Text, out int harga))
                 {
-                    MessageBox.Show("Data kue berhasil ditambahkan");
-                    ClearForm();
+                    MessageBox.Show("Harga harus berupa angka");
+                    txtTkharga.Focus();
+                    return;
                 }
-                else
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    MessageBox.Show("Data gagal ditambahkan");
+                    using (SqlCommand cmd = new SqlCommand("sp_InsertKue", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@NamaKue", txtTknama.Text);
+                        cmd.Parameters.AddWithValue("@Harga", harga);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
                 }
+
+                MessageBox.Show("Data kue berhasil ditambahkan");
+                ClearForm();
             }
             catch (Exception ex)
             {
