@@ -37,5 +37,22 @@ namespace KueTradisional
 
             LoadData();
         }
+
+        private void LoadData()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM vw_Pelanggan";
+
+                using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                {
+                    dtPelanggan = new DataTable();
+                    da.Fill(dtPelanggan);
+
+                    bindingSourcePelanggan.DataSource = dtPelanggan;
+                    dataGridView1.DataSource = bindingSourcePelanggan;
+                }
+            }
+        }
     }
 }
