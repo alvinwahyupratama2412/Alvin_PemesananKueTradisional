@@ -150,36 +150,23 @@ namespace KueTradisional
         {
             try
             {
-                if (conn.State == ConnectionState.Closed)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("sp_SearchKue", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Keyword", txtScrp.Text);
+
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            dtKue = new DataTable();
+                            da.Fill(dtKue);
+
+                            bindingSourceKue.DataSource = dtKue;
+                            dataGridView1.DataSource = bindingSourceKue;
+                        }
+                    }
                 }
-
-                string query = "SELECT * FROM Kue WHERE NamaKue LIKE @keyword";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@keyword", "%" + txtScrp.Text + "%");
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                dataGridView1.Rows.Clear();
-                dataGridView1.Columns.Clear();
-
-                dataGridView1.Columns.Add("KueID", "KueID");
-                dataGridView1.Columns.Add("NamaKue", "NamaKue");
-                dataGridView1.Columns.Add("Harga", "Harga");
-
-                while (reader.Read())
-                {
-                    dataGridView1.Rows.Add(
-                        reader["KueID"].ToString(),
-                        reader["NamaKue"].ToString(),
-                        reader["Harga"].ToString()
-                    );
-                }
-
-                reader.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
