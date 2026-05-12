@@ -15,7 +15,7 @@ namespace KueTradisional
     {
         private readonly string connectionString =
            "Data Source=DESKTOP-RF6R80E\\ALVINWAHYU12;Initial Catalog=KueTradisionalDB;Integrated Security=True";
-
+        private string idPelanggan;
         public EditPelanggan()
         {
             InitializeComponent();
