@@ -169,5 +169,19 @@ namespace KueTradisional
 
             LoadData();
         }
+
+        private void btnUpdatepl_Click(object sender, EventArgs e)
+        {
+            EditPelanggan f2 = new EditPelanggan();
+
+            string id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            string nama = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            string nohp = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+
+            f2.SetData(id, nama, nohp);
+            f2.ShowDialog();
+
+            LoadData();
+        }
     }
 }

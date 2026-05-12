@@ -80,6 +80,7 @@
             this.btntambahpl.TabIndex = 4;
             this.btntambahpl.Text = "Tambah";
             this.btntambahpl.UseVisualStyleBackColor = false;
+            this.btntambahpl.Click += new System.EventHandler(this.btntambahpl_Click);
             // 
             // TambahPelanggan
             // 
