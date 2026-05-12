@@ -54,9 +54,10 @@ namespace KueTradisional
         {
             try
             {
-                if (conn.State == System.Data.ConnectionState.Closed)
+                if (dataGridView1.CurrentRow == null)
                 {
-                    conn.Open();
+                    MessageBox.Show("Pilih data pesanan terlebih dahulu");
+                    return;
                 }
 
                 DialogResult resultConfirm = MessageBox.Show(
@@ -67,27 +68,23 @@ namespace KueTradisional
 
                 if (resultConfirm == DialogResult.Yes)
                 {
-                    string idPesanan = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    int idPesanan = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
 
-                    string query = "DELETE FROM Pesanan WHERE PesananID = @PesananID";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@PesananID", idPesanan);
-
-                    int result = cmd.ExecuteNonQuery();
-
-                    if (result > 0)
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        MessageBox.Show("Data berhasil dihapus");
-                        btnTampilp_Click(sender, e); // refresh data
+                        using (SqlCommand cmd = new SqlCommand("sp_DeletePesanan", conn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@PesananID", idPesanan);
+
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Data tidak ditemukan");
-                    }
+
+                    MessageBox.Show("Data pesanan berhasil dihapus");
+                    LoadData();
                 }
-
-                conn.Close();
             }
             catch (Exception ex)
             {
