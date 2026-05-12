@@ -38,32 +38,32 @@ namespace KueTradisional
         {
             try
             {
-                if (conn.State == System.Data.ConnectionState.Closed)
-                {
-                    conn.Open();
+                if(!int.TryParse(txtUkharga.Text, out int harga))
+{
+                    MessageBox.Show("Harga harus berupa angka");
+                    txtUkharga.Focus();
+                    return;
                 }
 
-                string query = @"UPDATE Kue
-                         SET NamaKue = @NamaKue,
-                             Harga = @Harga
-                         WHERE KueID = @KueID";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@KueID", idKue);
-                cmd.Parameters.AddWithValue("@NamaKue", txtUknama.Text);
-                cmd.Parameters.AddWithValue("@Harga", txtUkharga.Text);
-
-                int result = cmd.ExecuteNonQuery();
-
-                if (result > 0)
+                using (SqlCommand cmd = new SqlCommand("sp_UpdateKue", conn))
                 {
-                    MessageBox.Show("Data berhasil diupdate");
-                    ClearForm();
-                }
-                else
-                {
-                    MessageBox.Show("Data tidak ditemukan");
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@KueID", idKue);
+                    cmd.Parameters.AddWithValue("@NamaKue", txtUknama.Text);
+                    cmd.Parameters.AddWithValue("@Harga", harga);
+
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Data berhasil diupdate");
+                        ClearForm();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data tidak ditemukan");
+                    }
                 }
             }
             catch (Exception ex)
