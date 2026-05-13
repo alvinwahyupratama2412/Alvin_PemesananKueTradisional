@@ -52,9 +52,15 @@ namespace KueTradisional
         {
             try
             {
-                if (txtTpnama.Text == "")
+                if (cmbkue.SelectedValue == null)
                 {
-                    MessageBox.Show("Nama pelanggan harus diisi");
+                    MessageBox.Show("Kue harus dipilih");
+                    return;
+                }
+
+                if (cmbPelanggan.SelectedValue == null)
+                {
+                    MessageBox.Show("Pelanggan harus dipilih");
                     return;
                 }
 
@@ -64,27 +70,41 @@ namespace KueTradisional
                     return;
                 }
 
-                int jumlah = int.Parse(txtpJumlah.Text);
-                int harga = GetHargaKue((int)cmbkue.SelectedValue);
+                if (!int.TryParse(txtpJumlah.Text, out int jumlah))
+                {
+                    MessageBox.Show("Jumlah harus berupa angka");
+                    return;
+                }
+
+                if (jumlah < 30)
+                {
+                    MessageBox.Show("Minimal pemesanan 30 pcs");
+                    return;
+                }
+
+                if (dtma.Value.Date <= DateTime.Now.Date)
+                {
+                    MessageBox.Show("Tanggal ambil minimal besok");
+                    return;
+                }
+
+                int harga = GetHargaKue(Convert.ToInt32(cmbkue.SelectedValue));
                 int total = harga * jumlah;
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    conn.Open();
-
-                    string query = @"INSERT INTO Pesanan
-            (KueID, NamaPelanggan, Jumlah, TanggalPesan, TanggalAmbil, TotalHarga)
-            VALUES (@KueID, @NamaPelanggan, @Jumlah, @TanggalPesan, @TanggalAmbil, @TotalHarga)";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand("sp_InsertPesanan", conn))
                     {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
                         cmd.Parameters.AddWithValue("@KueID", cmbkue.SelectedValue);
-                        cmd.Parameters.AddWithValue("@NamaPelanggan", txtTpnama.Text);
+                        cmd.Parameters.AddWithValue("@PelangganID", cmbPelanggan.SelectedValue);
                         cmd.Parameters.AddWithValue("@Jumlah", jumlah);
-                        cmd.Parameters.AddWithValue("@TanggalPesan", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@TanggalAmbil", dtma.Value);
+                        cmd.Parameters.AddWithValue("@TanggalPesan", DateTime.Now.Date);
+                        cmd.Parameters.AddWithValue("@TanggalAmbil", dtma.Value.Date);
                         cmd.Parameters.AddWithValue("@TotalHarga", total);
 
+                        conn.Open();
                         cmd.ExecuteNonQuery();
                     }
                 }
