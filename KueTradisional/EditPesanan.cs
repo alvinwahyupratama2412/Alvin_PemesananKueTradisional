@@ -69,55 +69,49 @@ namespace KueTradisional
             try
             {
                 int kueID = Convert.ToInt32(comboBox1.SelectedValue);
-                int jumlah = Convert.ToInt32(txtupJumlah.Text);
+                int pelangganID = Convert.ToInt32(cmbPelanggan.SelectedValue);
 
-                SqlConnection conn2 = new SqlConnection(connectionString);
-                conn2.Open();
+                if (!int.TryParse(txtupJumlah.Text, out int jumlah))
+                {
+                    MessageBox.Show("Jumlah harus berupa angka");
+                    return;
+                }
 
-                SqlCommand cmdHarga = new SqlCommand(
-                    "SELECT Harga FROM Kue WHERE KueID=@id", conn2);
+                if (jumlah < 30)
+                {
+                    MessageBox.Show("Minimal pemesanan 30 pcs");
+                    return;
+                }
 
-                cmdHarga.Parameters.AddWithValue("@id", kueID);
+                if (dateTimePicker1.Value.Date <= DateTime.Now.Date)
+                {
+                    MessageBox.Show("Tanggal ambil minimal besok");
+                    return;
+                }
 
-                int harga = (int)cmdHarga.ExecuteScalar();
-
-                conn2.Close();
-
+                int harga = GetHargaKue(kueID);
                 int total = harga * jumlah;
 
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-
-                string query = @"UPDATE Pesanan
-                                 SET KueID=@KueID,
-                                 NamaPelanggan=@Nama,
-                                 Jumlah=@Jumlah,
-                                 TanggalAmbil=@Tanggal,
-                                 TotalHarga=@Total
-                                    WHERE PesananID=@id";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@KueID", kueID);
-                cmd.Parameters.AddWithValue("@Nama", txtUpnama.Text);
-                cmd.Parameters.AddWithValue("@Jumlah", jumlah);
-                cmd.Parameters.AddWithValue("@Tanggal", dateTimePicker1.Value);
-                cmd.Parameters.AddWithValue("@Total", total);
-                cmd.Parameters.AddWithValue("@id", pesananID);
-
-                int result = cmd.ExecuteNonQuery();
-
-                if (result > 0)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    MessageBox.Show("Data berhasil diupdate");
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Data tidak ditemukan");
+                    using (SqlCommand cmd = new SqlCommand("sp_UpdatePesanan", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@PesananID", pesananID);
+                        cmd.Parameters.AddWithValue("@KueID", kueID);
+                        cmd.Parameters.AddWithValue("@PelangganID", pelangganID);
+                        cmd.Parameters.AddWithValue("@Jumlah", jumlah);
+                        cmd.Parameters.AddWithValue("@TanggalAmbil", dateTimePicker1.Value.Date);
+                        cmd.Parameters.AddWithValue("@TotalHarga", total);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
                 }
 
-                conn.Close();
+                MessageBox.Show("Data berhasil diupdate");
+                this.Close();
             }
             catch (Exception ex)
             {
