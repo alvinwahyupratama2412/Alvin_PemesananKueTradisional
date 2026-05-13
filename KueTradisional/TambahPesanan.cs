@@ -163,8 +163,8 @@ namespace KueTradisional
 
         private void ClearForm()
         {
-            txtTpnama.Clear();
             txtpJumlah.Clear();
+            dtma.Value = DateTime.Now.AddDays(1);
         }
 
         private void TambahPesanan_Load(object sender, EventArgs e)
