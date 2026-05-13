@@ -8,9 +8,12 @@ Input yang digunakan:
 
 ```sql
 ' OR 1=1 --
+```
 
 Query tidak aman yang digunakan:
+```sql
 UPDATE Kue SET NamaKue = 'HACKED' WHERE NamaKue = '' OR 1=1 --'
+```
 Dampaknya, seluruh data pada kolom NamaKue berubah menjadi HACKED karena kondisi OR 1=1 selalu bernilai benar.
 
 ## Cara Reset Data
@@ -22,12 +25,15 @@ Sebelumnya dibuat tabel backup dengan query:
 ```sql
 SELECT * INTO Kue_Backup
 FROM Kue;
+```
 
 Query reset:
+```sql
 DELETE FROM Kue;
 
 INSERT INTO Kue
 SELECT * FROM Kue_Backup;
+```
 Dengan cara ini, data kue yang berubah akibat simulasi SQL Injection dapat dikembalikan seperti semula.
 
 ## 📸 Screenshot Aplikasi
