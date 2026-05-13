@@ -118,6 +118,23 @@ namespace KueTradisional
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private int GetHargaKue(int kueID)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT Harga FROM Kue WHERE KueID = @id";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", kueID);
+
+                    conn.Open();
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
         public void LoadData(int id)
         {
             pesananID = id;
