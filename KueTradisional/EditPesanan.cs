@@ -139,26 +139,29 @@ namespace KueTradisional
         {
             pesananID = id;
 
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand(
-                "SELECT * FROM Pesanan WHERE PesananID=@id", conn);
-
-            cmd.Parameters.AddWithValue("@id", id);
-
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                txtUpnama.Text = dr["NamaPelanggan"].ToString();
-                txtupJumlah.Text = dr["Jumlah"].ToString();
-                dateTimePicker1.Value = Convert.ToDateTime(dr["TanggalAmbil"]);
+                string query = "SELECT * FROM Pesanan WHERE PesananID = @id";
 
-                comboBox1.SelectedValue = Convert.ToInt32(dr["KueID"]);
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    conn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            txtupJumlah.Text = dr["Jumlah"].ToString();
+                            dateTimePicker1.Value = Convert.ToDateTime(dr["TanggalAmbil"]);
+
+                            comboBox1.SelectedValue = Convert.ToInt32(dr["KueID"]);
+                            cmbPelanggan.SelectedValue = Convert.ToInt32(dr["PelangganID"]);
+                        }
+                    }
+                }
             }
-
-            conn.Close();
         }
     }
 }
