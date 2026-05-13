@@ -25,6 +25,24 @@ namespace KueTradisional
             LoadPelanggan();
         }
 
+        private void LoadPelanggan()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT PelangganID, NamaPelanggan FROM Pelanggan";
+
+                using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    cmbPelanggan.DisplayMember = "NamaPelanggan";
+                    cmbPelanggan.ValueMember = "PelangganID";
+                    cmbPelanggan.DataSource = dt;
+                }
+            }
+        }
+
         private void txtTpnama_TextChanged(object sender, EventArgs e)
         {
 
