@@ -211,5 +211,37 @@ namespace KueTradisional
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnResetData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = @"
+            IF OBJECT_ID('dbo.Kue_Backup') IS NOT NULL
+            BEGIN
+                DELETE FROM dbo.Kue;
+
+                INSERT INTO dbo.Kue
+                SELECT * FROM dbo.Kue_Backup;
+            END";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Data berhasil direset");
+                LoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Reset gagal: " + ex.Message);
+            }
+        }
     }
 }
