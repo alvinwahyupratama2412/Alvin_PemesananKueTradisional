@@ -27,7 +27,7 @@ namespace KueTradisional
         private void EditPesanan_Load(object sender, EventArgs e)
         {
             LoadKue();
-
+            LoadPelanggan();
         }
         private void LoadKue()
         {

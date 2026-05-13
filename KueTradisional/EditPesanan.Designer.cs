@@ -35,9 +35,9 @@
             this.lblJumup = new System.Windows.Forms.Label();
             this.lblnamapup = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.txtUpnama = new System.Windows.Forms.TextBox();
             this.lblNamaup = new System.Windows.Forms.Label();
             this.btnUp = new System.Windows.Forms.Button();
+            this.cmbPelanggan = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnSimpantp
@@ -104,13 +104,6 @@
             this.comboBox1.Size = new System.Drawing.Size(220, 33);
             this.comboBox1.TabIndex = 13;
             // 
-            // txtUpnama
-            // 
-            this.txtUpnama.Location = new System.Drawing.Point(250, 101);
-            this.txtUpnama.Name = "txtUpnama";
-            this.txtUpnama.Size = new System.Drawing.Size(328, 31);
-            this.txtUpnama.TabIndex = 12;
-            // 
             // lblNamaup
             // 
             this.lblNamaup.AutoSize = true;
@@ -134,11 +127,20 @@
             this.btnUp.UseVisualStyleBackColor = false;
             this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
+            // cmbPelanggan
+            // 
+            this.cmbPelanggan.FormattingEnabled = true;
+            this.cmbPelanggan.Location = new System.Drawing.Point(250, 96);
+            this.cmbPelanggan.Name = "cmbPelanggan";
+            this.cmbPelanggan.Size = new System.Drawing.Size(328, 33);
+            this.cmbPelanggan.TabIndex = 21;
+            // 
             // EditPesanan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 467);
+            this.Controls.Add(this.cmbPelanggan);
             this.Controls.Add(this.btnUp);
             this.Controls.Add(this.btnSimpantp);
             this.Controls.Add(this.dateTimePicker1);
@@ -147,7 +149,6 @@
             this.Controls.Add(this.lblJumup);
             this.Controls.Add(this.lblnamapup);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.txtUpnama);
             this.Controls.Add(this.lblNamaup);
             this.Name = "EditPesanan";
             this.Text = "EditPesanan";
@@ -166,8 +167,8 @@
         private System.Windows.Forms.Label lblJumup;
         private System.Windows.Forms.Label lblnamapup;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox txtUpnama;
         private System.Windows.Forms.Label lblNamaup;
         private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.ComboBox cmbPelanggan;
     }
 }
