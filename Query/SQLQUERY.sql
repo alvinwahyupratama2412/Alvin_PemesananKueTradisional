@@ -83,6 +83,19 @@ BEGIN
     FROM inserted;
 END;
 
+CREATE TRIGGER trg_DeleteKue
+ON Kue
+AFTER DELETE
+AS
+BEGIN
+    INSERT INTO LogAktivitas (NamaTabel, Aksi, Keterangan)
+    SELECT
+        'Kue',
+        'DELETE',
+        'Menghapus data kue: ' + NamaKue
+    FROM deleted;
+END;
+
 CREATE PROCEDURE sp_ImportKue
     @NamaKue VARCHAR(100),
     @Harga INT
