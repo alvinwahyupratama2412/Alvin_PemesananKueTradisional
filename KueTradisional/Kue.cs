@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using ExcelDataReader;
 
 namespace KueTradisional
 {
@@ -245,7 +247,45 @@ namespace KueTradisional
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Excel Files|*.xls;*.xlsx";
 
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+                    using (var stream = File.Open(ofd.FileName, FileMode.Open, FileAccess.Read))
+                    {
+                        using (var reader = ExcelReaderFactory.CreateReader(stream))
+                        {
+                            var result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                            {
+                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
+                                {
+                                    UseHeaderRow = true
+                                }
+                            });
+
+                            DataTable dt = result.Tables[0];
+
+                            DAL dal = new DAL();
+                            dal.ImportKueDariExcel(dt);
+
+                            MessageBox.Show("Import data kue berhasil");
+                            LoadData();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DAL dal = new DAL();
+                dal.SimpanLog(ex.Message, "ImportKueDariExcel", 0);
+
+                MessageBox.Show("Import gagal: " + ex.Message);
+            }
         }
     }
 }
