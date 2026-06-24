@@ -38,6 +38,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="ExcelDataReader, Version=3.9.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.3.9.0\lib\net462\ExcelDataReader.dll</HintPath>
     </Reference>
@@ -65,6 +69,8 @@
       <HintPath>..\packages\System.Text.Encoding.CodePages.10.0.9\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
     <Reference Include="System.ValueTuple" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -100,6 +106,12 @@
     </Compile>
     <Compile Include="FormReportPesanan.Designer.cs">
       <DependentUpon>FormReportPesanan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewerReportPesanan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewerReportPesanan.Designer.cs">
+      <DependentUpon>FormViewerReportPesanan.cs</DependentUpon>
     </Compile>
     <Compile Include="Kue.cs">
       <SubType>Form</SubType>
@@ -156,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportPesanan.resx">
       <DependentUpon>FormReportPesanan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewerReportPesanan.resx">
+      <DependentUpon>FormViewerReportPesanan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kue.resx">
       <DependentUpon>Kue.cs</DependentUpon>

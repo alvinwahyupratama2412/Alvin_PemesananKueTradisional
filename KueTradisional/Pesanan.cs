@@ -188,5 +188,11 @@ namespace KueTradisional
                 }
             }
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            FormReportPesanan form = new FormReportPesanan();
+            form.ShowDialog();
+        }
     }
 }
