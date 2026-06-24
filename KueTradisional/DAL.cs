@@ -30,7 +30,54 @@ namespace KueTradisional
                 }
             }
         }
+
+        public void ImportKueDariExcel(DataTable dt)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlTransaction trans = conn.BeginTransaction();
+
+                try
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string namaKue = row["NamaKue"].ToString().Trim();
+                        string hargaText = row["Harga"].ToString().Trim();
+
+                        if (namaKue == "")
+                        {
+                            throw new Exception("Nama kue tidak boleh kosong");
+                        }
+
+                        if (!int.TryParse(hargaText, out int harga))
+                        {
+                            throw new Exception("Harga harus berupa angka");
+                        }
+
+                        using (SqlCommand cmd = new SqlCommand("sp_ImportKue", conn, trans))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.AddWithValue("@NamaKue", namaKue);
+                            cmd.Parameters.AddWithValue("@Harga", harga);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    trans.Commit();
+                }
+                catch
+                {
+                    trans.Rollback();
+                    throw;
+                }
+            }
+
+
+        }
+
     }
-
-
 }
