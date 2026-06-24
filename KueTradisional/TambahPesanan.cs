@@ -21,6 +21,7 @@ namespace KueTradisional
         {
             InitializeComponent();
             conn = new SqlConnection(connectionString);
+            txtpJumlah.KeyPress += TextAngka_KeyPress;
             LoadKue();
             LoadPelanggan();
         }
