@@ -21,7 +21,8 @@ namespace KueTradisional
         {
             InitializeComponent();
             conn = new SqlConnection(connectionString);
-            
+            txtupJumlah.KeyPress += TextAngka_KeyPress;
+
         }
 
         private void TextHuruf_KeyPress(object sender, KeyPressEventArgs e)
