@@ -95,6 +95,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportPesanan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportPesanan.Designer.cs">
+      <DependentUpon>FormReportPesanan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportPesanan.resx">
+      <DependentUpon>FormReportPesanan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kue.resx">
       <DependentUpon>Kue.cs</DependentUpon>
