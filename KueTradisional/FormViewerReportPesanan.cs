@@ -7,14 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace KueTradisional
 {
     public partial class FormViewerReportPesanan : Form
     {
-        public FormViewerReportPesanan()
+
+        private readonly string connectionString =
+          "Data Source=DESKTOP-RF6R80E\\ALVINWAHYU12;Initial Catalog=KueTradisionalDB;Integrated Security=True";
+
+        private DateTime tanggalAwal;
+        private DateTime tanggalAkhir;
+
+        public FormViewerReportPesanan(DateTime awal, DateTime akhir)
         {
             InitializeComponent();
+            tanggalAwal = awal;
+            tanggalAkhir = akhir;
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

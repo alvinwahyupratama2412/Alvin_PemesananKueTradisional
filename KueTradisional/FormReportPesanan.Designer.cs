@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpAwal = new System.Windows.Forms.DateTimePicker();
+            this.dtpAkhir = new System.Windows.Forms.DateTimePicker();
             this.scrp = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCetak = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dtpAwal
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(292, 96);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(289, 31);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpAwal.Location = new System.Drawing.Point(292, 96);
+            this.dtpAwal.Name = "dtpAwal";
+            this.dtpAwal.Size = new System.Drawing.Size(289, 31);
+            this.dtpAwal.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // dtpAkhir
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(292, 167);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(289, 31);
-            this.dateTimePicker2.TabIndex = 1;
+            this.dtpAkhir.Location = new System.Drawing.Point(292, 167);
+            this.dtpAkhir.Name = "dtpAkhir";
+            this.dtpAkhir.Size = new System.Drawing.Size(289, 31);
+            this.dtpAkhir.TabIndex = 1;
             // 
             // scrp
             // 
@@ -84,6 +84,7 @@
             this.btnCetak.TabIndex = 17;
             this.btnCetak.Text = "Lihat";
             this.btnCetak.UseVisualStyleBackColor = false;
+            this.btnCetak.Click += new System.EventHandler(this.btnCetak_Click);
             // 
             // FormReportPesanan
             // 
@@ -93,10 +94,11 @@
             this.Controls.Add(this.btnCetak);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.scrp);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpAkhir);
+            this.Controls.Add(this.dtpAwal);
             this.Name = "FormReportPesanan";
             this.Text = "FormReportPesanan";
+            this.Load += new System.EventHandler(this.FormReportPesanan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,8 +106,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpAwal;
+        private System.Windows.Forms.DateTimePicker dtpAkhir;
         private System.Windows.Forms.Label scrp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCetak;
