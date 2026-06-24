@@ -1,13 +1,14 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CrystalDecisions.CrystalReports.Engine;
 
 namespace KueTradisional
 {
@@ -29,7 +30,41 @@ namespace KueTradisional
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
+            LoadReport();
+        }
 
+        private void LoadReport()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_ReportPesanan", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@TanggalAwal", tanggalAwal);
+                        cmd.Parameters.AddWithValue("@TanggalAkhir", tanggalAkhir);
+
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dt);
+                        }
+                    }
+                }
+
+                ReportDocument report = new ReportDocument();
+                report.Load(Application.StartupPath + "\\ReportPesanan.rpt");
+                report.SetDataSource(dt);
+
+                crystalReportViewer1.ReportSource = report;
+                crystalReportViewer1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal menampilkan report: " + ex.Message);
+            }
         }
     }
 }
