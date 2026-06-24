@@ -21,6 +21,27 @@ namespace KueTradisional
         {
             InitializeComponent();
             conn = new SqlConnection(connectionString);
+            txtTknama.KeyPress += TextHuruf_KeyPress;
+            txtTkharga.KeyPress += TextAngka_KeyPress;
+        }
+
+        private void TextHuruf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar) &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextAngka_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void TambahKue_Load(object sender, EventArgs e)

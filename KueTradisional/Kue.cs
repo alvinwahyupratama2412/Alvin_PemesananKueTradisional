@@ -211,7 +211,6 @@ namespace KueTradisional
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void btnResetData_Click(object sender, EventArgs e)
         {
             try

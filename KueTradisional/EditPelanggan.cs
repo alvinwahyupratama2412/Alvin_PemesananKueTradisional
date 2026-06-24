@@ -19,7 +19,29 @@ namespace KueTradisional
         public EditPelanggan()
         {
             InitializeComponent();
+            txtnm.KeyPress += TextHuruf_KeyPress;
+            txtno.KeyPress += TextAngka_KeyPress;
         }
+
+        private void TextHuruf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar) &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextAngka_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         public void SetData(string PelangganID,
                             string NamaPelanggan,
                             string NoHP)
