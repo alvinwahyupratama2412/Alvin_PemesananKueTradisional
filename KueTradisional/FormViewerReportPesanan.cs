@@ -63,7 +63,7 @@ namespace KueTradisional
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal menampilkan report: " + ex.Message);
+                MessageBox.Show(ex.ToString());
             }
         }
     }

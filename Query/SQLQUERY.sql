@@ -202,3 +202,23 @@ BEGIN
 END;
 
 
+ALTER PROCEDURE sp_ReportPesanan
+    @TanggalAwal DATE,
+    @TanggalAkhir DATE
+AS
+BEGIN
+    SELECT
+        p.PesananID,
+        pl.NamaPelanggan,
+        k.NamaKue,
+        p.Jumlah,
+        CONVERT(VARCHAR(10), p.TanggalPesan, 103) AS TanggalPesan,
+        CONVERT(VARCHAR(10), p.TanggalAmbil, 103) AS TanggalAmbil,
+        p.TotalHarga
+    FROM Pesanan p
+    INNER JOIN Pelanggan pl ON p.PelangganID = pl.PelangganID
+    INNER JOIN Kue k ON p.KueID = k.KueID
+    WHERE p.TanggalPesan BETWEEN @TanggalAwal AND @TanggalAkhir
+    ORDER BY p.TanggalPesan DESC;
+END;
+GO
